@@ -17,14 +17,13 @@ class BOTSTUTORIAL_API ABotAIController : public AAIController
 	GENERATED_BODY()
 
 protected:
-
 	// AI components
 	UBehaviorTreeComponent* BehaviorTreeComponent;
 	UBlackboardComponent* BlackboardComponent;
 
 	// Blackboard key name to store the location where Bot should move
 	UPROPERTY(EditDefaultsOnly, Category = "AI")
-	FName LocationToGoKey;
+	FName LocationToGoKey = "LocationToGo";
 
 	/* Posses is executed when the character we want to control is spawned.
 	Inside this function, we initialize the blackboard and start the behavior tree */

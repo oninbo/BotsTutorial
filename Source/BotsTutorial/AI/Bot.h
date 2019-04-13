@@ -21,9 +21,9 @@ protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;
 
-	/*I use the AActor class as the Template class so I can use the GetAllActorsOfClass function.
-	However, in this collection I'm going to store all the Available ABotTargetPoint instances.*/
+	// Targets for Bot to patrol
 	TArray<ATargetPoint*> BotTargetPoints;
+
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;

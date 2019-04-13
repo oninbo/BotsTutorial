@@ -6,13 +6,11 @@
 
 ABotAIController::ABotAIController()
 {
-	// Initialize BehaviorTreeComponent, BlackboardComponent and the corresponding key
+	// Initialize BehaviorTreeComponent, BlackboardComponent
 
 	BehaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorComp"));
 
 	BlackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComp"));
-
-	LocationToGoKey = "LocationToGo";
 }
 
 void ABotAIController::OnPossess(APawn* Pawn)
