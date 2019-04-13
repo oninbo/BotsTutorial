@@ -9,13 +9,12 @@ ABotAIController::ABotAIController()
 	// Initialize BehaviorTreeComponent, BlackboardComponent
 
 	BehaviorTreeComponent = CreateDefaultSubobject<UBehaviorTreeComponent>(TEXT("BehaviorComp"));
-
-	BlackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BlackboardComp"));
+	BlackboardComponent = CreateDefaultSubobject<UBlackboardComponent>(TEXT("BBComp"));
 }
 
 void ABotAIController::OnPossess(APawn* Pawn)
 {
-	Super::Possess(Pawn);
+	Super::OnPossess(Pawn);
 
 	// Get the possessed Pawn and check if it's Bot
 	ABot* Bot = Cast<ABot>(Pawn);
@@ -26,9 +25,9 @@ void ABotAIController::OnPossess(APawn* Pawn)
 		if (Bot->BehaviorTree && Bot->BehaviorTree->BlackboardAsset)
 		{
 			BlackboardComponent->InitializeBlackboard(*(Bot->BehaviorTree->BlackboardAsset));
-		}
 
-		// Start the behavior tree which corresponds to the specific character
-		BehaviorTreeComponent->StartTree(*Bot->BehaviorTree);
+			// Start the behavior tree which corresponds to the specific character
+			BehaviorTreeComponent->StartTree(*Bot->BehaviorTree);
+		}
 	}
 }

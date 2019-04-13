@@ -25,10 +25,12 @@ void ABot::Tick(float DeltaTime)
 
 }
 
-// Called to bind functionality to input
-void ABot::SetupPlayerInputComponent(UInputComponent* PlayerInputComponent)
+int ABot::GetNextTargetIndex(int CurrentIndex)
 {
-	Super::SetupPlayerInputComponent(PlayerInputComponent);
-
+	int NewIndex = ++CurrentIndex;
+	if (CurrentIndex > BotTargetPoints.Num() - 1)
+	{
+		NewIndex = 0;
+	}
+	return NewIndex;
 }
-

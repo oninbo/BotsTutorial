@@ -21,14 +21,20 @@ protected:
 	UBehaviorTreeComponent* BehaviorTreeComponent;
 	UBlackboardComponent* BlackboardComponent;
 
-	// Blackboard key name to store the location where Bot should move
-	UPROPERTY(EditDefaultsOnly, Category = "AI")
-	FName LocationToGoKey = "LocationToGo";
-
 	/* Posses is executed when the character we want to control is spawned.
 	Inside this function, we initialize the blackboard and start the behavior tree */
 	virtual void OnPossess(APawn* Pawn) override;
 
 public:
 	ABotAIController();
+
+	// Blackboard key name to store the location where Bot should move
+	UPROPERTY(EditDefaultsOnly, Category = "AI")
+	FName LocationToGoKey = "LocationToGo";
+
+	// Blackboard key name to store the location where Bot should move
+	UPROPERTY(EditDefaultsOnly, Category = "AI")
+	FName PatrolPointIndexKey = "PatrolPointIndex";
+
+	UBlackboardComponent* GetBBComponent() { return BlackboardComponent; }
 };

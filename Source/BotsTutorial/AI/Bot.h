@@ -22,16 +22,18 @@ protected:
 	virtual void BeginPlay() override;
 
 	// Targets for Bot to patrol
+	UPROPERTY(EditAnywhere, Category = "AI")
 	TArray<ATargetPoint*> BotTargetPoints;
 
 public:
 	// Called every frame
 	virtual void Tick(float DeltaTime) override;
 
-	// Called to bind functionality to input
-	virtual void SetupPlayerInputComponent(class UInputComponent* PlayerInputComponent) override;
-
 	// BTree class to be used in AICotroller for this Bot
 	UPROPERTY(EditAnywhere, Category = "AI")
 	class UBehaviorTree* BehaviorTree;
+
+	int GetNextTargetIndex(int CurrentIndex);
+
+	ATargetPoint* GetTargetPointByIndex(int i) { return BotTargetPoints.Num() > 0 ? BotTargetPoints[i] : nullptr; };
 };
