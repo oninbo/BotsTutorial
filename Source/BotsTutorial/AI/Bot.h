@@ -35,5 +35,5 @@ public:
 
 	int GetNextTargetIndex(int CurrentIndex);
 
-	ATargetPoint* GetTargetPointByIndex(int i) { return BotTargetPoints.Num() > 0 ? BotTargetPoints[i] : nullptr; };
+	ATargetPoint* GetTargetPointByIndex(int i) { return BotTargetPoints.Num() > i && i >= 0 ? BotTargetPoints[i] : nullptr; };
 };
